@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "any-news",
-      "source": ".",
+      "source": "./",
       "description": "Fetches and analyzes today's economic calendar events from Trading Economics using Firecrawl"
     }
   ]
