@@ -6,34 +6,32 @@ disable-model-invocation: true
 
 # Firecrawl API Key Setup
 
-The **any-news** plugin uses Firecrawl to scrape economic calendar data. Help the user set up their API key.
+## SECURITY RULE — READ FIRST
 
-## What to do
+**NEVER ask the user to paste, type, or share their API key in this chat.** API keys entered in chat are logged in conversation history and may be captured by memory plugins. This is a hard rule with no exceptions. Do not ask for the key. Do not offer to "add it for them." Just show the terminal command below and let the user handle it themselves.
+
+## Instructions
 
 1. **Check if the key is already set.** Run: `echo $FIRECRAWL_API_KEY`
-   - If it's set and starts with `fc-`, tell the user they're good to go and suggest: "Try asking: What economic events are happening today?"
-   - If it's not set, continue to step 2.
+   - If it prints a value starting with `fc-` → tell the user they're all set and suggest: "Try asking: What economic events are happening today?"
+   - If empty → continue below.
 
-2. **Tell the user to get an API key** from https://firecrawl.dev/app/api-keys
-   - Create a free account if needed (the free tier includes 500 credits)
-   - The key starts with `fc-`
+2. **Show the user these steps** (output all of this as your response):
 
-3. **IMPORTANT: Do NOT ask the user to paste the key into chat.** Instead, show them this exact command to run in a separate terminal window:
+---
 
-   ```bash
-   echo 'export FIRECRAWL_API_KEY="YOUR_FIRECRAWL_KEY_HERE"' >> ~/.zshrc && source ~/.zshrc
-   ```
+**Step 1:** Get a free API key from https://firecrawl.dev/app/api-keys (free tier = 500 credits)
 
-   Tell them: "**Do not paste your API key into this chat** — it would be logged in conversation history. Instead, run this command in a separate terminal window, replacing YOUR_FIRECRAWL_KEY_HERE with your actual key."
+**Step 2:** Run this command **in a separate terminal window** (not here), replacing `YOUR_FIRECRAWL_KEY_HERE` with your actual key:
 
-   If they use bash instead of zsh, show `~/.bashrc` instead.
+```bash
+echo 'export FIRECRAWL_API_KEY="YOUR_FIRECRAWL_KEY_HERE"' >> ~/.zshrc && source ~/.zshrc
+```
 
-4. **After they've done that**, tell them to restart Claude Code so it picks up the new environment variable. Then they can test by asking: "What economic events are happening today?"
+> **Do not paste your API key into this chat.** It would be logged in conversation history. Use a separate terminal window.
 
-## Troubleshooting
+**Step 3:** Restart Claude Code, then try: "What economic events are happening today?"
 
-If the user says it's not working after setup:
-- Run `echo $FIRECRAWL_API_KEY` to verify the key is set in the current session
-- The key should start with `fc-`
-- Suggest running `source ~/.zshrc` if they haven't restarted
-- Suggest `claude --debug` to check for MCP server errors
+---
+
+3. **Stop here.** Do not ask follow-up questions. Do not offer to run the command for them. The user will handle the rest in their terminal.
