@@ -2,5 +2,14 @@
   "name": "any-news",
   "version": "1.0.0",
   "description": "Economic calendar plugin — fetches and analyzes today's market events from Trading Economics using Firecrawl",
-  "keywords": ["economics", "calendar", "trading", "market-events", "firecrawl"]
+  "keywords": ["economics", "calendar", "trading", "market-events", "firecrawl"],
+  "mcpServers": {
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    }
+  }
 }
