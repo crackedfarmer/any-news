@@ -14,20 +14,21 @@ The **any-news** plugin uses Firecrawl to scrape economic calendar data. Help th
    - If it's set and starts with `fc-`, tell the user they're good to go and suggest: "Try asking: What economic events are happening today?"
    - If it's not set, continue to step 2.
 
-2. **Tell the user to get an API key:**
-   - Go to https://firecrawl.dev/app/api-keys
+2. **Tell the user to get an API key** from https://firecrawl.dev/app/api-keys
    - Create a free account if needed (the free tier includes 500 credits)
-   - Copy the API key (it starts with `fc-`)
+   - The key starts with `fc-`
 
-3. **Ask the user to paste their key.** Once they provide it, add it to their shell profile by running:
+3. **IMPORTANT: Do NOT ask the user to paste the key into chat.** Instead, show them this exact command to run in a separate terminal window:
 
    ```bash
-   echo 'export FIRECRAWL_API_KEY="THE_KEY_THEY_GAVE_YOU"' >> ~/.zshrc
+   echo 'export FIRECRAWL_API_KEY="YOUR_FIRECRAWL_KEY_HERE"' >> ~/.zshrc && source ~/.zshrc
    ```
 
-   If they use bash instead of zsh, use `~/.bashrc` instead.
+   Tell them: "**Do not paste your API key into this chat** — it would be logged in conversation history. Instead, run this command in a separate terminal window, replacing YOUR_FIRECRAWL_KEY_HERE with your actual key."
 
-4. **Tell them to restart Claude Code** so it picks up the new environment variable. Then they can test by asking: "What economic events are happening today?"
+   If they use bash instead of zsh, show `~/.bashrc` instead.
+
+4. **After they've done that**, tell them to restart Claude Code so it picks up the new environment variable. Then they can test by asking: "What economic events are happening today?"
 
 ## Troubleshooting
 
