@@ -1,0 +1,16 @@
+{
+  "name": "any-news-marketplace",
+  "owner": {
+    "name": "chuseok"
+  },
+  "metadata": {
+    "description": "Economic calendar plugin for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "any-news",
+      "source": ".",
+      "description": "Fetches and analyzes today's economic calendar events from Trading Economics using Firecrawl"
+    }
+  ]
+}
