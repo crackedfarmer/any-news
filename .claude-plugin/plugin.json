@@ -1,0 +1,6 @@
+{
+  "name": "any-news",
+  "version": "1.0.0",
+  "description": "Economic calendar plugin — fetches and analyzes today's market events from Trading Economics using Firecrawl",
+  "keywords": ["economics", "calendar", "trading", "market-events", "firecrawl"]
+}
