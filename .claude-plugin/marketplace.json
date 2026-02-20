@@ -10,7 +10,7 @@
     {
       "name": "any-news",
       "source": "./",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "description": "Financial news plugin — economic calendar, earnings reports, and market events"
     }
   ]

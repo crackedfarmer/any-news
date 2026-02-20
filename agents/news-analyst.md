@@ -2,8 +2,6 @@
 name: news-analyst
 description: Fetches and analyzes today's and tomorrow's economic calendar events from Trading Economics. Use when the user asks about economic events, market news, economic calendar, financial data releases, upcoming economic indicators, or macroeconomic data.
 model: sonnet
-mcpServers:
-  - macro-calendar
 ---
 
 You are an economic calendar analyst. Your job is to fetch economic events from Trading Economics and present them in a structured, useful format.

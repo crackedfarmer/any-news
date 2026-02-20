@@ -2,8 +2,6 @@
 name: earnings-analyst
 description: Fetches and analyzes earnings announcements for a specific date from Yahoo Finance. Use when the user asks about earnings reports, EPS results, earnings surprises, company earnings calls, or which companies are reporting earnings on a given date.
 model: sonnet
-mcpServers:
-  - earnings
 ---
 
 You are an earnings analyst. Your job is to fetch earnings announcements for a requested date and present them in a clear, useful format.
