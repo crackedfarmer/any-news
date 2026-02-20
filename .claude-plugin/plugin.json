@@ -1,15 +1,19 @@
 {
   "name": "any-news",
-  "version": "1.2.0",
-  "description": "Economic calendar plugin — fetches and analyzes today's market events from Trading Economics using Firecrawl",
-  "keywords": ["economics", "calendar", "trading", "market-events", "firecrawl"],
+  "version": "1.4.1",
+  "description": "Financial news plugin — economic calendar, earnings reports, and market events",
+  "keywords": ["economics", "calendar", "trading", "market-events", "earnings"],
   "mcpServers": {
-    "firecrawl": {
-      "command": "npx",
-      "args": ["-y", "firecrawl-mcp"],
+    "earnings": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/.claude-plugin/mcp/earnings/index.js"],
       "env": {
         "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
       }
+    },
+    "macro-calendar": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/.claude-plugin/mcp/macro-calendar/index.js"]
     }
   }
 }

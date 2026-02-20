@@ -1,16 +1,17 @@
 {
   "name": "any-news-marketplace",
   "owner": {
-    "name": "chuseok"
+    "name": "crackedfarmer"
   },
   "metadata": {
-    "description": "Economic calendar plugin for Claude Code"
+    "description": "Financial news plugin — economic calendar, earnings reports, and market events"
   },
   "plugins": [
     {
       "name": "any-news",
       "source": "./",
-      "description": "Fetches and analyzes today's economic calendar events from Trading Economics using Firecrawl"
+      "version": "1.4.1",
+      "description": "Financial news plugin — economic calendar, earnings reports, and market events"
     }
   ]
 }
