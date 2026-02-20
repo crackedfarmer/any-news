@@ -1,6 +1,6 @@
 {
   "name": "any-news",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Financial news plugin — economic calendar, earnings reports, and market events",
   "keywords": ["economics", "calendar", "trading", "market-events", "earnings"],
   "mcpServers": {
