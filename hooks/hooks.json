@@ -12,13 +12,14 @@
         ]
       }
     ],
-    "PreToolUse": [
+    "PostToolUse": [
       {
         "matcher": "mcp__plugin_any-news_macro-calendar__get_macro_calendar",
         "hooks": [
           {
-            "type": "agent",
-            "prompt": "You are a pre-flight check for a macro economic calendar API call.\n\n## Step 1: Check Necessity\nRead the conversation transcript to understand what the user actually asked. Determine if this tool call is necessary.\n\nDENY the call if the user's question:\n- Is a general finance/economics knowledge question (e.g., 'what is GDP?', 'how do interest rates work?')\n- Asks about historical concepts or theory that don't require live calendar data\n- Can be answered from general knowledge without checking real-world scheduled events\n\nOnly APPROVE if the user genuinely needs to know about real-world macro events that are happening, scheduled, or recently released.\n\nIf denying, return {\"ok\": false, \"reason\": \"This question does not require live economic calendar data. Answer from general knowledge instead.\"}\n\n## Step 2: Get Current Time\nUse the Bash tool to run: date '+%Y-%m-%d %H:%M:%S %Z (%z)'\nThis gives you the device's current date, time, and timezone.\n\n## Step 3: Verify Parameters\nThe tool is about to be called with these parameters: $TOOL_INPUT\n\nCheck the following:\n- If a 'date' parameter is provided, does it make sense relative to the current date? (e.g., not requesting far-future dates the calendar won't have)\n- If no 'date' parameter is provided, is that intentional? (getting all available events is valid)\n- Are there unnecessary parameters that could be narrowed down? (e.g., if the user only asked about US events, note that)\n\n## Step 4: Decision\n- If the parameters look correct for the user's intent, return {\"ok\": true}\n- If the parameters should be adjusted, return {\"ok\": false, \"reason\": \"Explain what should change and why, referencing the current date/time you discovered\"}",
+            "type": "prompt",
+            "prompt": "Respond with ONLY valid JSON. No markdown, no code fences, no explanation.\n\n$ARGUMENTS\n\nYou are a data quality validator. Check ONLY the FIRST and LAST entries in tool_response to verify the data is legitimate.\n\nLegitimate data has real values: actual country names, real event names, numeric values for previous/consensus/forecast fields.\n\nBad data has placeholder strings like 'Please subscribe', 'API key required', 'N/A', 'undefined', or fields that are all null/empty across both objects.\n\nIf both the first and last entries look like real economic data, respond: {\"ok\":true}\nIf either looks like placeholder/error data, respond: {\"ok\":false,\"reason\":\"The macro calendar API returned invalid data. The response contains placeholder values instead of real economic events. The user's API key or subscription may need to be checked.\"}",
+            "model": "claude-sonnet-4-6",
             "timeout": 30
           }
         ]
