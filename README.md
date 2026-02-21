@@ -6,6 +6,8 @@ Financial news plugin for [Claude Code](https://claude.ai/claude-code) — econo
 
 - **Economic calendar** — today's and upcoming macro events from Trading Economics (CPI, GDP, NFP, rate decisions, etc.) with impact ratings and market context
 - **Earnings calendar** — company earnings announcements from Yahoo Finance with EPS estimates, reported results, and surprise calculations
+- **Smart tool validation** — a pre-flight hook prevents unnecessary API calls when questions can be answered from general knowledge
+- **API key check** — reminds you to set up Firecrawl on session start if the key is missing
 
 ## Requirements
 
