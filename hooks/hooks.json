@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/check-firecrawl-key.sh\"",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/check-firecrawl-key.sh",
             "timeout": 5
           }
         ]
